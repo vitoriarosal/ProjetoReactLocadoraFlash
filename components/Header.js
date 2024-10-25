@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
 
 // Estilos inspirados nos anos 2000
 const headerStyle = {
@@ -23,15 +22,13 @@ const navLinkStyle = {
 };
 
 const Header = () => {
-  const [user, setUser] = useState(null);
-
   return (
     <>
       <Navbar expand="lg" style={headerStyle} className="mb-4">
         <Container>
           <Navbar.Brand style={{ display: 'flex', alignItems: 'center' }}>
             {/* Link da imagem da pipoca */}
-            <Link href="/index" passHref>
+            <Link href="/" passHref>
               <Image
                 src="https://images.vexels.com/media/users/3/151999/isolated/preview/ef9bf8f8b4adb58f9597823a298283c4-iacute-cone-de-pipoca-doce-by-vexels.png"
                 alt="Logo de Pipoca"
@@ -56,23 +53,7 @@ const Header = () => {
               <Nav.Link as={Link} href="/locacoes" style={navLinkStyle}>Locações</Nav.Link>
               <Nav.Link as={Link} href="/funcionarios" style={navLinkStyle}>Funcionários</Nav.Link>
               <Nav.Link as={Link} href="/fornecedores" style={navLinkStyle}>Fornecedores</Nav.Link>
-            </Nav>
-
-            <Nav className="align-items-center">
-              {user ? (
-                <>
-                  <Navbar.Text style={{ color: "#fff", marginRight: "10px" }}>
-                    Bem-vindo, {user.name}
-                  </Navbar.Text>
-                  <Button variant="outline-light" onClick={() => setUser(null)}>
-                    Logout
-                  </Button>
-                </>
-              ) : (
-                <Nav.Link as={Link} href="/login" style={navLinkStyle}>
-                  Login
-                </Nav.Link>
-              )}
+              <Nav.Link as={Link} href="/dashboard" style={navLinkStyle}>Mais locados</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

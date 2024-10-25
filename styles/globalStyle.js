@@ -4,7 +4,7 @@ export default createGlobalStyle`
 
   * 
     body{
-    background-image: url("https://th.bing.com/th/id/R.8f78a54343e273965c441be09185103b?rik=dacyjDVlfUJWjA&pid=ImgRaw&r=0");
+    background-image: url("https://www.gibizilla.com.br/wp-content/uploads/2024/09/PequenaMissSunshine_02-scaled.jpg");
     background-size: cover;
     font-size: 17px;
   }
