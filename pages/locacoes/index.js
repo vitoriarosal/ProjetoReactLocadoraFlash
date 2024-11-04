@@ -28,38 +28,48 @@ const index = () => {
     }
   }
 
+  function formatarValor(valor) {
+    return parseFloat(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
   return (
     <>
       <GlobalStyle />
       <Header />
       <Container>
-        <Link href="/locacoes/form" className="mb-2">
+        <Link href="/locacoes/form" passHref>
           <Button style={styleForm.buttonPlus} className="mb-2">
             <AiOutlinePlus />
             Criar Locação
           </Button>
         </Link>
-        {locacoes.map((l, index) => (
-          <Card style={styleCard} key={index}>
-            <Card.Header as="h5">{l.filme}</Card.Header>
-            <Card.Body>
-              <Card.Title>Cliente: {l.cliente}</Card.Title>
-              <Card.Text>Data de Início: {l.dataInicio}</Card.Text>
-              <Card.Text>Data de Fim: {l.dataFim}</Card.Text>
-              <Card.Text>Valor: R$ {l.valor}</Card.Text>
-              <div className="d-flex align-items-center">
-                <Link href={'/locacoes/' + index}>
-                  <TbFeather size={25} className="text-light me-2" />
-                </Link>
-                <TbTrashFilled
-                  size={25}
-                  onClick={() => excluir(index)}
-                  className="text-danger"
-                />
-              </div>
-            </Card.Body>
-          </Card>
-        ))}
+        {locacoes.length === 0 ? (
+          <p className="text-center mt-4">Nenhuma locação cadastrada.</p>
+        ) : (
+          locacoes.map((l, index) => (
+            <Card style={styleCard} key={index} className="mb-3">
+              <Card.Header as="h5">{l.filme}</Card.Header>
+              <Card.Body>
+                <Card.Title>Cliente: {l.cliente}</Card.Title>
+                <Card.Text>Data de Início: {l.dataInicio}</Card.Text>
+                <Card.Text>Data de Fim: {l.dataFim}</Card.Text>
+                <Card.Text>Valor: {formatarValor(l.valor)}</Card.Text>
+                <div className="d-flex align-items-center">
+                  <Link href={'/locacoes/' + index} passHref>
+                    <TbFeather size={25} className="text-light me-2" role="button" />
+                  </Link>
+                  <TbTrashFilled
+                    size={25}
+                    onClick={() => excluir(index)}
+                    className="text-danger"
+                    role="button"
+                    style={{ cursor: 'pointer' }}
+                  />
+                </div>
+              </Card.Body>
+            </Card>
+          ))
+        )}
       </Container>
     </>
   );

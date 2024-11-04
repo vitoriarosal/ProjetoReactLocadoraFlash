@@ -1,3 +1,5 @@
+'use client'
+
 import Header from '@/components/Header';
 import GlobalStyle from '@/styles/globalStyle';
 import styleForm from '@/styles/styleForm';
@@ -7,20 +9,13 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { AiOutlinePlus } from 'react-icons/ai';
 import { RiFilePaperFill } from 'react-icons/ri';
 import { TbArrowLeftTail } from 'react-icons/tb';
-import { mask } from 'remask'; // Importação da máscara
+import { mask } from 'remask';
 
 const formFuncionarios = () => {
   const { push } = useRouter();
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
-  const [cargos, setCargos] = useState([]);
-
-  useEffect(() => {
-    const data = JSON.parse(window.localStorage.getItem('cargos')) || [];
-    setCargos(data);
-  }, []);
 
   function salvar(dados) {
     console.log(dados);
@@ -58,19 +53,13 @@ const formFuncionarios = () => {
 
             <Form.Group className="py-2 px-3" controlId="cargo">
               <Form.Label>Cargo</Form.Label>
-              <Form.Select isInvalid={errors.cargo} {...register('cargo', geralValidator.notNull)}>         
-                <option value="">Selecione um cargo</option>
-                {cargos.map((o, i) => (
-                  <option key={i} value={o.descricao}> {o.descricao} </option>         
-                ))}
-              </Form.Select>
+              <Form.Control 
+                type="text" 
+                isInvalid={errors.cargo} 
+                placeholder="Digite o cargo do funcionário" 
+                {...register('cargo', geralValidator.notNull)}
+              />
               {errors.cargo && <p className='mt-1 text-light'>{errors.cargo.message}</p>} 
-              <Link href="/cargos/form" className='mb-2'>
-                <Button type="button" style={styleForm.buttonPlus} className='mt-2'>
-                  <AiOutlinePlus />
-                  Criar cargo
-                </Button>
-              </Link>
             </Form.Group>
 
             <Form.Group className="py-2 px-3" controlId="setor">

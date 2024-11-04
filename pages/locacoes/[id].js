@@ -9,6 +9,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { RiFilePaperFill } from 'react-icons/ri';
 import { TbArrowLeftTail } from 'react-icons/tb';
+import InputMask from 'react-input-mask'; // Importando a biblioteca
 
 const id = () => {
   const { push, query } = useRouter();
@@ -82,11 +83,12 @@ const id = () => {
 
             <Form.Group className="py-2 px-3" controlId="valor">
               <Form.Label>Valor da Locação</Form.Label>
-              <Form.Control
-                type="number"
+              <InputMask
+                mask="R$ 9999,99"
                 placeholder="Digite o valor da locação"
                 {...register('valor', geralValidator.notNull)}
                 isInvalid={errors.valor}
+                className="form-control"
               />
               {errors.valor && <p className="mt-1 text-light">{errors.valor.message}</p>}
             </Form.Group>
