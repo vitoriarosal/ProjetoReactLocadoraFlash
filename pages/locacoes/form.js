@@ -1,4 +1,3 @@
-'use client'
 import Header from '@/components/Header';
 import GlobalStyle from '@/styles/globalStyle';
 import styleForm from '@/styles/styleForm';
@@ -17,18 +16,22 @@ const formLocacoes = () => {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
   const [filmes, setFilmes] = useState([]);
   const [locados, setLocados] = useState([]);
+  const [clientes, setClientes] = useState([]);
 
   useEffect(() => {
     const filmesCadastrados = JSON.parse(window.localStorage.getItem('filmes')) || [];
     const filmesLocados = JSON.parse(window.localStorage.getItem('locados')) || [];
+    const clientesCadastrados = JSON.parse(window.localStorage.getItem('clientes')) || [];
+    
     setFilmes(filmesCadastrados);
     setLocados(filmesLocados);
+    setClientes(clientesCadastrados);
   }, []);
 
   function salvar(dados) {
     const locacoes = JSON.parse(window.localStorage.getItem('locacoes')) || [];
-    const valorSemMascara = dados.valor.replace('R$', '').replace(/\./g, '').replace(',', '.').trim(); // Remove o R$ e a máscara para salvar corretamente
-    dados.valor = parseFloat(valorSemMascara); // Converte o valor para número
+    const valorSemMascara = dados.valor.replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
+    dados.valor = parseFloat(valorSemMascara);
 
     locacoes.unshift(dados);
     window.localStorage.setItem('locacoes', JSON.stringify(locacoes));
@@ -44,17 +47,12 @@ const formLocacoes = () => {
     let maskedValue = value;
   
     if (name === 'valor') {
-      // Remove "R$", espaços e pontos do valor atual para aplicar a máscara de novo
       const rawValue = value.replace(/[R$\s.]/g, '');
-      
-      // Aplica a máscara para valores com ou sem centavos
       maskedValue = `R$ ${mask(rawValue, ['9999', '9.999', '999.999', '9.999,99', '999.999,99'])}`;
     }
   
     setValue(name, maskedValue);
   }
-  
-  
 
   const filmesDisponiveis = filmes.filter(filme => !locados.includes(filme.nome));
 
@@ -80,12 +78,14 @@ const formLocacoes = () => {
 
             <Form.Group className="py-2 px-3" controlId="cliente">
               <Form.Label>Nome do Cliente</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Digite o nome do cliente"
-                {...register('cliente', geralValidator.notNull)}
-                isInvalid={errors.cliente}
-              />
+              <Form.Select {...register('cliente', geralValidator.notNull)}>
+                <option value="">Selecione um cliente</option>
+                {clientes.length > 0 && clientes.map((cliente, index) => (
+                  <option key={index} value={cliente.nome}>
+                    {cliente.nome}
+                  </option>
+                ))}
+              </Form.Select>
               {errors.cliente && <p className="mt-1 text-light">{errors.cliente.message}</p>}
             </Form.Group>
 

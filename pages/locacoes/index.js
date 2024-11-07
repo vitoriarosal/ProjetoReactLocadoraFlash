@@ -12,19 +12,15 @@ const index = () => {
   const [locacoes, setLocacoes] = useState([]);
 
   useEffect(() => {
-    setLocacoes(getAll());
+    setLocacoes(JSON.parse(window.localStorage.getItem('locacoes')) || []);
   }, []);
-
-  function getAll() {
-    return JSON.parse(window.localStorage.getItem('locacoes')) || [];
-  }
 
   function excluir(i) {
     if (confirm('Deseja realmente excluir o registro?')) {
-      const itens = getAll();
-      itens.splice(i, 1);
+      const itens = [...locacoes]; // Copia a lista de locações atual
+      itens.splice(i, 1); // Remove o item
       window.localStorage.setItem('locacoes', JSON.stringify(itens));
-      setLocacoes(itens);
+      setLocacoes(itens); // Atualiza o estado
     }
   }
 
@@ -56,15 +52,13 @@ const index = () => {
                 <Card.Text>Valor: {formatarValor(l.valor)}</Card.Text>
                 <div className="d-flex align-items-center">
                   <Link href={'/locacoes/' + index} passHref>
-                    <TbFeather size={25} className="text-light me-2" role="button" />
+                    <Button variant="link" className="p-0 me-2">
+                      <TbFeather size={25} className="text-primary" />
+                    </Button>
                   </Link>
-                  <TbTrashFilled
-                    size={25}
-                    onClick={() => excluir(index)}
-                    className="text-danger"
-                    role="button"
-                    style={{ cursor: 'pointer' }}
-                  />
+                  <Button variant="link" className="p-0 text-danger" onClick={() => excluir(index)}>
+                    <TbTrashFilled size={25} />
+                  </Button>
                 </div>
               </Card.Body>
             </Card>
