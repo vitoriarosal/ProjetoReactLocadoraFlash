@@ -1,6 +1,6 @@
 const styleCard = {
     borderRadius: '10px',
-    backgroundColor: '#708090',
+    backgroundColor: '#4F4F4F',
     height: "100%",
     width: "100%",
     color: "white", // Mudei a cor do texto para contrastar melhor com o fundo

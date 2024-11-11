@@ -1,6 +1,6 @@
 const styleForm = {
     borderRadius: '15px', // Bordas mais arredondadas para um visual ainda mais suave
-    backgroundColor: '#2C2F33', // Fundo escuro com tom neutro (para destacar os campos e botões)
+    backgroundColor: '#D2B48C ', // Fundo escuro com tom neutro (para destacar os campos e botões)
     padding: '30px', // Espaçamento interno mais confortável
     boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.2)', // Sombra mais forte para dar destaque ao form
     color: 'white', // Cor branca para o texto no formulário
@@ -48,7 +48,7 @@ const styleForm = {
         marginBottom: '15px',
         width: '100%',
         fontSize: '16px',
-        backgroundColor: '#40444B', // Fundo mais escuro para os campos
+        backgroundColor: 'D2B48C ', // Fundo mais escuro para os campos
         color: 'white', // Texto branco nos inputs
         transition: 'border-color 0.3s ease', // Transição suave para hover/foco
     },
