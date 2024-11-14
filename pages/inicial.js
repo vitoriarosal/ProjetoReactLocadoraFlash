@@ -6,23 +6,27 @@ import { Card, Container, Row, Col } from 'react-bootstrap';
 const filmesData = [
   { nome: "Matrix", gif: "https://media2.giphy.com/media/QS0KOjNRG0tfG/giphy.gif" },
   { nome: "Titanic", gif: "https://miro.medium.com/v2/resize:fit:996/0*CTJNRzvl8UDyyJ9V" },
-  { nome: "Jurassic Park", gif: "https://pa1.aminoapps.com/6834/a55fe770891f080e7e5505072aa29ecb8934a163_hq.gif" }
+  { nome: "Jurassic Park", gif: "https://th.bing.com/th/id/R.778a45f57b2ba00454e87a2bc3728b55?rik=p6PiRcfYpE3Dzw&pid=ImgRaw&r=0" }
 ];
 
-// Componente para a seção de Filmes Clássicos
+// Componente para a seção de Filmes Clássicos com estilo Bootstrap
 function FilmesClassicos({ filmes }) {
   return (
-    <div className="filmesClassicos">
+    <Container className="filmesClassicos">
       <h2 className="subTitle">Sugestão de Filmes Clássicos</h2>
-      <div className="filmeContainer">
+      <Row className="justify-content-center">
         {filmes.map((filme, index) => (
-          <div key={index} className="filmeItem">
-            <img src={filme.gif} alt={filme.nome} className="filmeImage"/>
-            <p className="filmeName">{filme.nome}</p>
-          </div>
+          <Col key={index} md={4} className="mb-4">
+            <Card className="filmeCard shadow-sm">
+              <Card.Img variant="top" src={filme.gif} alt={filme.nome} />
+              <Card.Body>
+                <Card.Title className="text-center">{filme.nome}</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 
@@ -161,31 +165,6 @@ export default function Home() {
         .subTitle {
           font-size: 36px;
           text-shadow: 2px 2px #FFD700;
-        }
-
-        .filmeContainer {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-        }
-
-        .filmeItem {
-          text-align: center;
-        }
-
-        .filmeImage {
-          width: 150px;
-          height: 200px;
-          border: 5px solid #FF69B4;
-          box-shadow: 0px 0px 20px #FF69B4;
-          border-radius: 10px;
-        }
-
-        .filmeName {
-          margin-top: 10px;
-          font-size: 18px;
-          font-weight: bold;
-          color: #FF69B4;
         }
 
         .reviewCard {

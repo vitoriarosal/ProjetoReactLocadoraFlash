@@ -17,10 +17,10 @@ const index = () => {
 
   function excluir(i) {
     if (confirm('Deseja realmente excluir o registro?')) {
-      const itens = [...locacoes]; // Copia a lista de locações atual
-      itens.splice(i, 1); // Remove o item
+      const itens = [...locacoes]; 
+      itens.splice(i, 1); /
       window.localStorage.setItem('locacoes', JSON.stringify(itens));
-      setLocacoes(itens); // Atualiza o estado
+      setLocacoes(itens); 
     }
   }
 

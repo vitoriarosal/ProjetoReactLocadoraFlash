@@ -87,7 +87,7 @@ const id = () => {
                 mask="R$ 9999,99"
                 placeholder="Digite o valor da locação"
                 {...register('valor', geralValidator.notNull)}
-                className={`form-control ${errors.valor ? 'is-invalid' : ''}`} // Adiciona a classe is-invalid se houver erro
+                className={`form-control ${errors.valor ? 'is-invalid' : ''}`}
               />
               {errors.valor && <p className="mt-1 text-light">{errors.valor.message}</p>}
             </Form.Group>
