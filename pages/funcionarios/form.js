@@ -25,10 +25,9 @@ const formFuncionarios = () => {
     push("/funcionarios");
   }
 
-  // Função para aplicar a máscara no campo de nome
   function handleChange(event) {
     const { name, value } = event.target;
-    const maskedValue = value.replace(/[0-9]/g, ''); // Remove números do nome
+    const maskedValue = value.replace(/[0-9]/g, ''); 
     setValue(name, maskedValue);
   }
 
@@ -46,7 +45,7 @@ const formFuncionarios = () => {
                 isInvalid={errors.nome} 
                 placeholder="Digite o nome do funcionário" 
                 {...register('nome', geralValidator.notNull)}
-                onChange={handleChange} // Aplica a máscara ao nome
+                onChange={handleChange} 
               />
               { errors.nome && <p className='mt-1 text-light'> {errors.nome.message} </p> } 
             </Form.Group>

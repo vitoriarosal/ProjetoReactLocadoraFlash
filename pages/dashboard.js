@@ -46,7 +46,7 @@ export default function Dashboard() {
       setFuncionarios(funcionariosLocal);
       setFornecedores(fornecedoresLocal);
       setIsLoading(false);
-    }, 1000); // Simula o carregamento com um delay
+    }, 1000); 
   }, []);
 
   const locacoesPorGenero = {};

@@ -17,26 +17,20 @@ const formClientes = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    // Carrega as classes do localStorage
     const data = JSON.parse(window.localStorage.getItem('classes')) || [];
     setClasses(data);
   }, []);
 
-  // Função de salvamento do cliente
   function salvar(dados) {
     const clientes = JSON.parse(window.localStorage.getItem('clientes')) || [];
 
-    // Adiciona o novo cliente no início do array
     clientes.unshift(dados);
 
-    // Atualiza o localStorage com o novo cliente
     window.localStorage.setItem('clientes', JSON.stringify(clientes));
 
-    // Redireciona para a página de clientes
     push('/clientes');
   }
 
-  // Função para lidar com a máscara dos campos
   function handleChange(event) {
     setValue(event.target.name, mask(event.target.value, event.target.getAttribute('mask')));
   }

@@ -25,7 +25,6 @@ const id = () => {
       const cliente = clientes[query.id];
       
       if (cliente) {
-        // Preenche o formulário com os dados do cliente para edição
         for (let campo in cliente) {
           setValue(campo, cliente[campo]);
         }
@@ -37,10 +36,8 @@ const id = () => {
     const clientes = JSON.parse(window.localStorage.getItem('clientes')) || [];
 
     if (query.id) {
-      // Editando cliente existente
       clientes.splice(query.id, 1, dados);
     } else {
-      // Criando novo cliente
       clientes.unshift(dados);
     }
 

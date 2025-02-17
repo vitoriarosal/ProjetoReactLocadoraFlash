@@ -11,13 +11,12 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { RiFilePaperFill } from 'react-icons/ri';
 import { TbArrowLeftTail } from 'react-icons/tb';
-import InputMask from 'react-input-mask'; // Biblioteca para máscara de telefone
+import InputMask from 'react-input-mask'; 
 
 const formFornecedores = () => {
   const { push } = useRouter();
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
-  // Função para salvar os dados no localStorage
   function salvar(dados) {
     const fornecedores = JSON.parse(window.localStorage.getItem('fornecedores')) || [];
     fornecedores.unshift(dados);

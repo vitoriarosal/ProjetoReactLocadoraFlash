@@ -11,8 +11,7 @@ import { Button, Container, Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { RiFilePaperFill } from 'react-icons/ri'
 import { TbArrowLeftTail } from 'react-icons/tb'
-import InputMask from 'react-input-mask' // Importa a biblioteca para máscara
-
+import InputMask from 'react-input-mask' 
 const id = () => {
   const { push, query } = useRouter()
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();

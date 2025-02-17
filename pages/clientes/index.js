@@ -22,9 +22,9 @@ const index = () => {
   function excluir(i) {
     if (confirm('Deseja realmente excluir o registro?')) {
       const itens = getAll();
-      itens.splice(i, 1);  // Remove o cliente da lista
-      window.localStorage.setItem('clientes', JSON.stringify(itens)); // Atualiza o localStorage
-      setClientes(itens); // Atualiza o estado
+      itens.splice(i, 1);  
+      window.localStorage.setItem('clientes', JSON.stringify(itens)); 
+      setClientes(itens); 
     }
   }
 

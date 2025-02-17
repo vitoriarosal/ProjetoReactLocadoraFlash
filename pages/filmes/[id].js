@@ -112,10 +112,10 @@ const id = () => {
                   const file = e.target.files[0];
                   const reader = new FileReader();
                   reader.onloadend = () => {
-                    setValue('imagem', reader.result);  // Salva a imagem em base64 no form
+                    setValue('imagem', reader.result);  
                   };
                   if (file) {
-                    reader.readAsDataURL(file);  // Converte para base64
+                    reader.readAsDataURL(file);  
                   }
                 }}
               />

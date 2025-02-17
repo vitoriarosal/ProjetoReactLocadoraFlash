@@ -8,7 +8,6 @@ import CardCadastros from '@/components/CardCadastros';
 export default function Home() {
   const router = useRouter();
 
-  // Função para redirecionar para a página do dashboard ao clicar na imagem
   function handleClick() {
     router.push('/dashboard');
   }
@@ -18,7 +17,6 @@ export default function Home() {
       <GlobalStyle />
       <Header />
       <Container>
-        {/* Seção de destaque com a imagem */}
         <Row className="mb-5">
           <Col>
             <div
@@ -27,20 +25,20 @@ export default function Home() {
                 position: 'relative',
                 cursor: 'pointer',
                 textAlign: 'center',
-                overflow: 'hidden', // Para evitar que o efeito de escala saia do contêiner
-                borderRadius: '10px', // Borda arredondada
+                overflow: 'hidden', 
+                borderRadius: '10px', 
               }}
             >
               <img
-                src="https://static-revistaesquinas.casperlibero.edu.br/uploads/2019/02/Mean-Girls.jpg" // Insira aqui o link da imagem de destaque
+                src="https://static-revistaesquinas.casperlibero.edu.br/uploads/2019/02/Mean-Girls.jpg" 
                 alt="Filmes Mais Locados"
                 style={{
                   width: '100%',
                   height: '400px',
                   objectFit: 'cover',
-                  transition: 'transform 0.3s ease, filter 0.3s ease', // Transição suave
+                  transition: 'transform 0.3s ease, filter 0.3s ease', 
                 }}
-                className="image-highlight" // Classe CSS para aplicar o efeito de hover
+                className="image-highlight" 
               />
               <h1
                 style={{
@@ -48,17 +46,17 @@ export default function Home() {
                   top: '50%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
-                  color: 'yellow', // Cor vibrante
+                  color: 'yellow', 
                   backgroundColor: 'rgba(0, 0, 0, 0.5)',
                   padding: '20px',
                   borderRadius: '10px',
-                  fontFamily: 'Comic Sans MS, Arial Black', // Fonte estilizada
-                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Sombra no texto
-                  fontSize: '36px', // Tamanho da fonte
-                  letterSpacing: '2px', // Espaçamento entre letras
-                  transition: 'color 0.3s ease', // Transição suave para a cor do texto
+                  fontFamily: 'Comic Sans MS, Arial Black', 
+                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', 
+                  fontSize: '36px', 
+                  letterSpacing: '2px', 
+                  transition: 'color 0.3s ease', 
                 }}
-                className="title-highlight" // Classe CSS para aplicar o efeito de hover
+                className="title-highlight" 
               >
                 Filmes Mais Locados nos Últimos 30 Dias
               </h1>
@@ -75,7 +73,6 @@ export default function Home() {
           </Col>
         </Row>
 
-        {/* Cards de Cadastros */}
         <Row className="mb-5">
           <Col>
             <CardCadastros

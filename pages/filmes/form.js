@@ -22,7 +22,6 @@ const formFilmes = () => {
     "Romance", "Terror", "Suspense", "Fantasia", "Animação"
   ];
 
-  // Função para converter imagem para Base64
   function toBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -32,14 +31,12 @@ const formFilmes = () => {
     });
   }
 
-  // Função para capturar o arquivo de imagem e converter para Base64
   async function handleImageUpload(event) {
     const file = event.target.files[0];
     const base64 = await toBase64(file);
     setImagem(base64);
   }
 
-  // Função para salvar os dados do filme e a imagem no localStorage
   function salvar(dados) {
     const filmes = JSON.parse(window.localStorage.getItem('filmes')) || [];
     const novoFilme = { ...dados, imagem };
@@ -48,10 +45,9 @@ const formFilmes = () => {
     push("/filmes");
   }
 
-  // Função para lidar com a máscara do campo de duração
   function handleChange(event) {
     const { name, value } = event.target;
-    const maskedValue = mask(value, ['999']); // Define a máscara diretamente aqui
+    const maskedValue = mask(value, ['999']); 
     setValue(name, maskedValue);
   }
 
@@ -86,7 +82,7 @@ const formFilmes = () => {
               </Form.Select>
             </Form.Group>
 
-            {/* Campo para classificação indicativa */}
+      
             <Form.Group className="py-2 px-3" controlId="classificacao">
               <Form.Label>Classificação Indicativa</Form.Label>
               <Form.Select {...register('classificacao', geralValidator.notNull)}>
@@ -100,7 +96,6 @@ const formFilmes = () => {
               </Form.Select>
             </Form.Group>
 
-            {/* Campo para duração do filme com máscara */}
             <Form.Group className="py-2 px-3" controlId="duracao">
               <Form.Label>Duração (minutos)</Form.Label>
               <Form.Control 
@@ -121,7 +116,6 @@ const formFilmes = () => {
               />
             </Form.Group>
 
-            {/* Novo campo para upload de imagem */}
             <Form.Group className="py-2 px-3" controlId="imagem">
               <Form.Label>Imagem do Filme</Form.Label>
               <Form.Control 
@@ -131,7 +125,6 @@ const formFilmes = () => {
               />
             </Form.Group>
 
-            {/* Botões de salvar e voltar */}
             <div className='text-center me-2 py-3'>
               <Button style={styleForm.buttonSave} type="button" className='me-2' onClick={handleSubmit(salvar)}>
                 <RiFilePaperFill />

@@ -9,7 +9,6 @@ const filmesData = [
   { nome: "Jurassic Park", gif: "https://th.bing.com/th/id/R.778a45f57b2ba00454e87a2bc3728b55?rik=p6PiRcfYpE3Dzw&pid=ImgRaw&r=0" }
 ];
 
-// Componente para a seção de Filmes Clássicos com estilo Bootstrap
 function FilmesClassicos({ filmes }) {
   return (
     <Container className="filmesClassicos">
@@ -39,21 +38,18 @@ export default function Home() {
       <div className="container">
         <h1 className="title">Locadora FlashBack</h1>
 
-        {/* Texto rolando estilo marquee contínuo */}
         <div className="marqueeContainer">
           <div className="marquee">
             VENHA CONHECER NOSSOS FILMES, CLIENTES E LOCAÇÕES!
           </div>
         </div>
 
-        {/* Botões chamativos com efeito nostálgico */}
         <div className="buttonContainer">
           <a href="/clientes" className="animated-button">Clientes</a>
           <a href="/filmes" className="animated-button">Filmes</a>
           <a href="/locacoes" className="animated-button">Locações</a>
         </div>
 
-        {/* Seção de Filmes Clássicos com o novo componente */}
         <FilmesClassicos filmes={filmesData} />
 
         {/* Seção de Reviews */}

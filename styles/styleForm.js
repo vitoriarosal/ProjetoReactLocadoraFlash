@@ -1,24 +1,24 @@
 const styleForm = {
-    borderRadius: '15px', // Bordas mais arredondadas para um visual ainda mais suave
-    backgroundColor: '#D2B48C ', // Fundo escuro com tom neutro (para destacar os campos e botões)
-    padding: '30px', // Espaçamento interno mais confortável
-    boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.2)', // Sombra mais forte para dar destaque ao form
-    color: 'white', // Cor branca para o texto no formulário
+    borderRadius: '15px', 
+    backgroundColor: '#D2B48C ', 
+    padding: '30px', 
+    boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.2)', 
+    color: 'white', 
 
     buttonSave: {
-        backgroundColor: '#FFD700', // Amarelo vibrante que remete ao estilo dos anos 2000
-        color: 'black', // Preto para contraste forte
-        borderRadius: '8px', // Bordas arredondadas nos botões
-        padding: '12px 25px', // Maior área clicável
+        backgroundColor: '#FFD700', 
+        color: 'black', 
+        borderRadius: '8px', 
+        padding: '12px 25px', 
         border: 'none',
-        cursor: 'pointer', // Ícone de "mão" ao passar o mouse
+        cursor: 'pointer', 
         fontSize: '16px',
-        transition: 'background-color 0.3s ease', // Transição suave para o hover
+        transition: 'background-color 0.3s ease', 
         fontWeight: 'bold',
     },
     
     buttonBack: {
-        backgroundColor: '#7289DA', // Azul vibrante
+        backgroundColor: '#7289DA', 
         color: 'white',
         borderRadius: '8px',
         padding: '12px 25px',
@@ -30,7 +30,7 @@ const styleForm = {
     },
 
     buttonPlus: {
-        backgroundColor: '#FF4500', // Cor laranja vibrante para destacar
+        backgroundColor: '#FF4500',
         color: 'white',
         padding: '12px 25px',
         borderRadius: '8px',
@@ -42,15 +42,15 @@ const styleForm = {
     },
 
     input: {
-        borderRadius: '8px', // Bordas arredondadas nos campos de input
+        borderRadius: '8px', 
         padding: '12px',
-        border: '1px solid #ced4da', // Borda suave para os campos
+        border: '1px solid #ced4da',
         marginBottom: '15px',
         width: '100%',
         fontSize: '16px',
-        backgroundColor: 'D2B48C ', // Fundo mais escuro para os campos
-        color: 'white', // Texto branco nos inputs
-        transition: 'border-color 0.3s ease', // Transição suave para hover/foco
+        backgroundColor: 'D2B48C ', 
+        color: 'white', 
+        transition: 'border-color 0.3s ease',
     },
 
     label: {
@@ -58,7 +58,7 @@ const styleForm = {
         fontWeight: 'bold',
         marginBottom: '8px',
         display: 'block',
-        color: '#FFD700', // Amarelo que combina com o tema
+        color: '#FFD700', 
     },
 };
 

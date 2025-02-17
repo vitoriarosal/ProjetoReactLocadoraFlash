@@ -18,7 +18,7 @@ const index = () => {
   function excluir(i) {
     if (confirm('Deseja realmente excluir o registro?')) {
       const itens = [...locacoes]; 
-      itens.splice(i, 1); /
+      itens.splice(i, 1);
       window.localStorage.setItem('locacoes', JSON.stringify(itens));
       setLocacoes(itens); 
     }
