@@ -8,10 +8,10 @@ const CardCadastros = ({ nome, img, desc, link }) => {
       className="shadow-lg border-0"
       style={{
         width: '18rem',
-        background: 'linear-gradient(135deg, #4e54c8, #8f94fb)', // Gradiente para o fundo
-        borderRadius: '15px', // Bordas arredondadas para um visual suave
-        overflow: 'hidden', // Para garantir que os cantos fiquem arredondados
-        color: '#fff', // Texto branco para contraste
+        background: 'linear-gradient(135deg, #4e54c8, #8f94fb)', 
+        borderRadius: '15px', 
+        overflow: 'hidden', 
+        color: '#fff', 
         textDecoration: 'none'
       }}
     >
@@ -22,8 +22,8 @@ const CardCadastros = ({ nome, img, desc, link }) => {
         className="rounded"
         alt={`Imagem de ${nome}`}
         style={{
-          objectFit: 'cover', // Evita que a imagem fique distorcida
-          borderBottom: '4px solid #FFC107' // Linha vibrante embaixo da imagem
+          objectFit: 'cover', 
+          borderBottom: '4px solid #FFC107' 
         }}
       />
       <Card.Body className="text-center">
