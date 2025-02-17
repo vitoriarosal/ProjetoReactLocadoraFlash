@@ -3,14 +3,13 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Estilos inspirados nos anos 2000
 const headerStyle = {
-  background: 'linear-gradient(90deg, #4e54c8, #8f94fb)', // Gradiente vibrante
+  background: 'linear-gradient(90deg, #4e54c8, #8f94fb)', 
   fontSize: '16px',
   padding: '20px 0',
-  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)', // Sombras para dar destaque
-  borderBottom: '3px solid #ffc107', // Linha vibrante embaixo do header
-  fontFamily: "'Press Start 2P', cursive" // Fonte retrô dos anos 2000
+  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)', 
+  borderBottom: '3px solid #ffc107', 
+  fontFamily: "'Press Start 2P', cursive" 
 };
 
 const navLinkStyle = {
@@ -27,7 +26,7 @@ const Header = () => {
       <Navbar expand="lg" style={headerStyle} className="mb-4">
         <Container>
           <Navbar.Brand style={{ display: 'flex', alignItems: 'center' }}>
-            {/* Link da imagem da pipoca */}
+            {}
             <Link href="/" passHref>
               <Image
                 src="https://images.vexels.com/media/users/3/151999/isolated/preview/ef9bf8f8b4adb58f9597823a298283c4-iacute-cone-de-pipoca-doce-by-vexels.png"
@@ -39,7 +38,7 @@ const Header = () => {
               />
             </Link>
 
-            {/* Link do texto "Locadora FlashBack" */}
+            {}
             <Link href="/inicial" passHref>
               <span style={{ color: "#fff", fontSize: "18px", cursor: 'pointer' }}>Locadora FlashBack</span>
             </Link>
